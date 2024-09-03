@@ -1,0 +1,235 @@
+:root {
+    --main-bg-color: #ea5e29;
+}
+
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+section {
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+}
+
+section:before,
+section:after {
+    content: '';
+    display: table;
+}
+
+.user-text {
+    margin: 65px auto 0;
+    margin-left: 0;
+    font-weight: 400;
+    font-size: 1.5rem;
+    font-family: 'Open Sans', sans-serif;
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+.user-input {
+    --radius: 2px;
+    background-color: #f5f7fa !important;
+    border-color: #b3b3b3;
+    border-width: 1px;
+    border-radius: var(--radius) !important;
+    border-style: solid;
+    width: 100%;
+    padding: 10px 12px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.user-form-group {
+    padding-left: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: start;
+    box-sizing: border-box;
+    margin: 23px auto 0;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+}
+
+form {
+    padding: 10px;
+    margin-left: -10px;
+    width: calc(100% + 10px);
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    margin: 23px auto 0;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+}
+
+.user-sheet {
+    --theme-sheet-width-sm: 540px;
+    width: var(--theme-sheet-width-sm) !important;
+    margin: 0 auto;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.user-sheet:before {
+    content: '';
+    display: table;
+}
+
+.user-form {
+    width: 540px;
+    margin: 23px auto 0;
+    box-sizing: border-box;
+}
+
+.user-btn {
+    --radius: 2px;
+    padding: 10px 30px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    background-color: var(--main-bg-color);
+    color: #ffffff;
+    border-radius: var(--radius) !important;
+    display: table;
+    text-align: start;
+    line-height: 1.6;
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+    border: none;
+}
+
+.user-btn-round {
+    border-width: 2px;
+    margin-left: 20px;
+    border-style: solid;
+    padding: 10px 30px;
+    color: var(--main-bg-color) !important;
+    background-color: transparent !important;
+    border-radius: var(--radius) !important;
+    text-decoration: none;
+}
+
+footer {
+    color: #ffffff;
+    background-color: #333333;
+    text-align: center;
+}
+
+footer:after,
+footer:before {
+    content: '';
+    display: table;
+}
+
+.user-form-submit {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.checkbox-wrap * {
+    box-sizing: content-box;
+}
+
+.checkbox-wrap {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.user-input-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.user-input-row p {
+    margin: 0px 15px;
+}
+
+.orange-legend {
+    color: var(--main-bg-color);
+}
+
+.user-text-2 {
+    margin: 37px auto 60px -10px;
+    text-align: left;
+}
+
+#checkbox {
+    display: none;
+}
+
+#checkbox-button {
+    position: relative;
+    display: block;
+    width: 35px;
+    height: 18px;
+    background-color: var(--main-bg-color);
+    border-radius: 87px;
+    cursor: pointer;
+    transition: 0.4s ease background-color;
+}
+
+#checkbox-button span {
+    display: block;
+}
+
+#checkbox-button #knob {
+    width: 13px;
+    height: 13px;
+    position: relative;
+    top: 2.5px;
+    left: 2.5px;
+    border-radius: 50%;
+    transition: 0.4s ease left, 0.4s ease background-position;
+    z-index: 2;
+    background: #ffffff;
+}
+
+#checkbox-button #not-ok,
+#checkbox-button #ok {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 13px;
+    font-weight: bold;
+    font-family: Verdana, sans-serif;
+    text-transform: uppercase;
+    margin-left: 102px;
+    z-index: 1;
+    transition: 0.4s ease opacity;
+}
+
+#checkbox-button #ok {
+    margin-left: 10px;
+    opacity: 0;
+}
+
+#checkbox:checked + #checkbox-button #ok {
+    opacity: 1;
+}
+
+#checkbox:checked + #checkbox-button #not-ok {
+    opacity: 0;
+}
+
+#checkbox:checked + #checkbox-button #knob {
+    left: 19.5px;
+    background-position: -125px 0;
+}
+
+@media (max-width: 575px) {
+    .user-form {
+        width: 100%;
+    }
+    .user-sheet {
+        --theme-sheet-width-sm: calc(100% - 20px);
+    }
+    .user-text-2 {
+        margin: 37px auto 60px 10px;
+    }
+}

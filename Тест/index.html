@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="ru">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Mobil​e application development, Make things you love., Start running today, webuilddigital., Mobile App Development, Our Team, Using design to improve product development, Get in touch">
+    <meta name="description" content="">
+    <title>Тест</title>
+    <link rel="stylesheet" href="index.css" media="screen">
+    <meta name="referrer" content="origin">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    <meta name="theme-color" content="#ea5e29">
+    <meta property="og:title" content="Тест">
+    <meta property="og:type" content="website">
+</head>
+
+<body>
+
+    <section>
+        <div class="user-sheet">
+            <h4 class="user-text">Принять участие в мероприятии</h4>
+            <div class="user-form">
+                <form method="post" class="user-inner-form" style="padding: 10px" source="email" name="form" id="user-inner-form">
+                    <div class="user-form-group">
+                        <label for="name">Ваше имя *</label>
+                        <input type="text" placeholder="Фамилия Имя" id="name" name="name" class="user-input" required="">
+                    </div>
+                    <div class="user-form-group">
+                        <label for="email">Телефон *</label>
+                        <input type="tel" id="email" name="number" class="user-input" required="required" placeholder="8 (***) ***-**-**" pattern="^8 \(\d{3}\) \d{3}-\d{2}-\d{2}$" oninput="formatPhoneNumber(this)">
+                    </div>
+                    <div class="user-form-group">
+                        <label for="text">E-mail *</label>
+                        <input type="email" id="text" name="mail" class="user-input" required="required" placeholder="электронная почта">
+                    </div>
+                    <div class="user-form-group">
+                        <label class="u-form-control-hidden"></label>
+                        <div>
+                            <div class="user-input-row">
+                                <div class="checkbox-wrap">
+                                    <input type="checkbox" id="checkbox" required="required"/>
+                                    <label id="checkbox-button" for="checkbox">
+                                        <span id="knob"></span>
+                                    </label>
+                                </div>
+                                <p>я согласен на <span class="orange-legend"> обработку персональных данных </span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="user-form-group user-form-submit">
+                        <button type="submit" class="user-btn">Отправить</button>
+                        <button type="reset" class="user-btn-round user-btn">Сбросить</button>
+                    </div>
+                </form>
+            </div>
+            <p class="user-text-2"><br><br><br></p>
+        </div>
+    </section>
+
+    <footer>
+        <div>
+            <p>ШЕТЬКО КИРИЛЛ.</p>
+        </div>
+    </footer>
+<!-- <script src="index.js"></script> -->
+<script>
+    function formatPhoneNumber(input) {
+    let cleaned = input.value.replace(/\D/g, '');
+
+    if (cleaned.length === 0) {
+        cleaned = '8';
+    } else if (cleaned[0] !== '8') {
+        cleaned = '8' + cleaned;
+    }
+
+    let formatted = cleaned;
+
+    if (cleaned.length > 1) {
+        formatted = cleaned.slice(0, 1) + ' (' + cleaned.slice(1, 4);
+    }
+    if (cleaned.length >= 5) {
+        formatted += ') ' + cleaned.slice(4, 7);
+    }
+    if (cleaned.length >= 8) {
+        formatted += '-' + cleaned.slice(7, 9);
+    }
+    if (cleaned.length >= 10) {
+        formatted += '-' + cleaned.slice(9, 11);
+    }
+
+    input.value = formatted;
+}
+const initialOutputContent = document.querySelector(".user-text-2").innerHTML;
+
+document.querySelector("#user-inner-form").addEventListener('submit', function (event) {
+
+    event.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const phone = document.getElementById('email').value;
+    const email = document.getElementById('text').value;
+
+    const outputParagraph = document.querySelector(".user-text-2");
+    outputParagraph.innerHTML = `
+        Имя: ${name}<br>
+        Телефон: ${phone}<br>
+        E-mail: ${email}<br>
+    `;
+})
+
+document.querySelector("#user-inner-form").addEventListener('reset', function (event) {
+
+    document.querySelector(".user-text-2").innerHTML = initialOutputContent;
+
+    this.reset();
+});
+</script>
+</body>
+
+</html>
